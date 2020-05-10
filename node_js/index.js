@@ -118,6 +118,11 @@ app.get('/error', function(req, res){
     res.sendFile(dirnm + '/error.html');
 });
 
+// /imgファイルにGET要求された時の動作
+app.get('/img', isAuthenticated, function(req, res){
+    res.sendFile(dirnm + '/img/' + req.query.img);
+});
+
 app.use(express.static('../website'));
 app.listen(8001, ()=> {
   console.log('Express Server 01');
